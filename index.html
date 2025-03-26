@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Tree</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('I_Love_You_GIF_Animation-1061218216.gif') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            color: rgb(221, 98, 207);
+            text-shadow: 3px 3px 5px rgb(170, 63, 98);
+            position: absolute;
+            top: 5%;
+            right: 10%;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(221, 98, 207);
+            text-shadow: 3px 3px 5px rgb(170, 63, 98);
+            position: absolute;
+            top: 25%;
+            width: 80%; 
+            left: 10%;
+        }
+
+        .music-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffc400 0%, #f2b9aa 100%);
+        }
+
+        #heart-button, #love-letter-button, #cake-love {
+            position: absolute;
+            background: pink;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #heart-button { bottom: 200px; }
+        #love-letter-button { bottom: 100px; }
+        #cake-love { bottom: 40px; background: rgb(244, 45, 184); }
+
+        .game-buttons {
+            position: fixed;
+            top: 60%;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .game-button {
+            background-color: #ff6b81;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .game-button:hover {
+            background-color: #d63384;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; top: 2%; right: 5%; }
+            h3 { font-size: 16px; top: 20%; width: 90%; }
+            #heart-button, #love-letter-button, #cake-love {
+                padding: 8px 16px;
+                font-size: 14px;
+                bottom: auto;
+                position: static;
+                margin: 10px 0;
+            }
+            body {
+                height: auto;
+                padding: 10px;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 28px; }
+            h3 { font-size: 14px; top: 18%; }
+            .music-icon { width: 50px; height: 50px; }
+        }
+
+        @keyframes falling {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>MARI JAAN</h1>
+    <h3>
+        Happy Birthday, my love! 🎉💕 You light up my life in so many ways. I’m so grateful to have you as my partner and best friend. You are truly cherished, and I promise to love and support you always.
+    </h3>
+
+    <div class="music-icon" onclick="toggleMusic()">
+        <svg viewBox="0 0 24 24">
+            <path d="M9 17a4 4 0 100-8 4 4 0 000 8zm6-9V3l6 3-6 3zm-6-1a5 5 0 100 10 5 5 0 000-10z"></path>
+        </svg>
+    </div>
+
+    <button id="heart-button" onclick="startHeartRain()">Make it Rain Hearts 💗</button>
+    <a href="letter.html" id="love-letter-button">Read My Love Letter</a>
+    <a href="cake.html" id="cake-love">Let's Cut Your Cake</a>
+
+    <audio id="bg-music" autoplay loop>
+        <source src="musicc.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let audio = document.getElementById("bg-music");
+            audio.play().catch(() => console.log("Autoplay blocked, waiting for user interaction."));
+            document.addEventListener("click", () => audio.paused && audio.play());
+        });
+
+        function toggleMusic() {
+            let audio = document.getElementById("bg-music");
+            audio.paused ? audio.play() : audio.pause();
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerText = "❤️💗";
+            heart.style.position = "fixed";
+            heart.style.top = "-50px";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = Math.random() * 20 + 10 + "px";
+            heart.style.animation = "falling 6s linear infinite";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        function startHeartRain() {
+            let interval = setInterval(createHeart, 200);
+            setTimeout(() => clearInterval(interval), 5000);
+        }
+    </script>
+
+    <div class="game-buttons">
+        <a href="game.html" class="game-button">Play Tic-Tac-Toe💘</a>
+        <a href="game2.html" class="game-button">Play Memory Matching Game💝</a>
+    </div>
+</body>
+</html>
