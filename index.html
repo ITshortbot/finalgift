@@ -15,27 +15,30 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 0 10px;
+            overflow-x: hidden;
         }
 
         h1 {
-            font-size: 50px;
+            font-size: 48px;
             font-weight: bold;
             color: rgb(221, 98, 207);
             text-shadow: 3px 3px 5px rgb(170, 63, 98);
             position: absolute;
             top: 5%;
             right: 10%;
+            max-width: 90%;
         }
 
         h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: rgb(221, 98, 207);
             text-shadow: 3px 3px 5px rgb(170, 63, 98);
             position: absolute;
             top: 25%;
-            width: 80%; 
-            left: 10%;
+            width: 90%;
+            left: 5%;
         }
 
         .music-icon {
@@ -53,7 +56,6 @@
         }
 
         #heart-button, #love-letter-button, #cake-love {
-            position: absolute;
             background: pink;
             color: white;
             border: none;
@@ -62,15 +64,16 @@
             border-radius: 25px;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
         }
 
-        #heart-button { bottom: 200px; }
-        #love-letter-button { bottom: 100px; }
-        #cake-love { bottom: 40px; background: rgb(244, 45, 184); }
+        #heart-button { margin-top: 200px; }
+        #love-letter-button { margin-top: 20px; }
+        #cake-love { background: rgb(244, 45, 184); }
 
         .game-buttons {
             position: fixed;
-            top: 20%;
+            top: 30%;
             right: 10px;
             display: flex;
             flex-direction: column;
@@ -84,7 +87,7 @@
             border: none;
             border-radius: 10px;
             text-align: center;
-            font-size: 16px;
+            font-size: 14px;
             text-decoration: none;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
             cursor: pointer;
@@ -97,18 +100,22 @@
         /* Media Queries for Responsive Design */
         @media (max-width: 768px) {
             h1 { font-size: 36px; top: 2%; right: 5%; }
-            h3 { font-size: 16px; top: 20%; width: 90%; }
+            h3 { font-size: 16px; top: 20%; }
+
             #heart-button, #love-letter-button, #cake-love {
                 padding: 8px 16px;
                 font-size: 14px;
-                bottom: auto;
-                position: static;
-                margin: 10px 0;
+                margin: 5px auto;
             }
+
+            .game-buttons {
+                top: 50%;
+                right: 5px;
+            }
+
             body {
-                height: auto;
                 padding: 10px;
-                justify-content: flex-start;
+                height: auto;
             }
         }
 
@@ -178,9 +185,8 @@
     </script>
 
     <div class="game-buttons">
-        <a href="tic-tac-toe.html" class="game-button">Play Tic-Tac-Toe</a>
-        <a href="memory-matching.html" class="game-button">Play Memory Matching Game</a>
+        <a href="game.html" class="game-button">Play Tic-Tac-Toe</a>
+        <a href="game2.html" class="game-button">Play Memory Matching Game</a>
     </div>
 </body>
 </html>
-
